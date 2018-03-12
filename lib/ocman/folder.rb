@@ -11,7 +11,7 @@ module Ocman
 
       Ocman::Dav.new.ls(URI.encode(path), options) do |item|
         accu << Hashie::Mash.new({
-          path: URI.decode(item.uri.to_s.gsub(Ocman::Dav.url(path), '').gsub('/', '')),
+          path: URI.decode(item.uri.to_s.gsub(Ocman::Dav.url(path), '')),
           type: item.type.to_s,
           size: item.size
         })
